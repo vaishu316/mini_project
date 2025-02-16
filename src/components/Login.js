@@ -6,6 +6,12 @@ const Login = ({ setShowLogin }) => {
       <h5 className="text-center mb-3">Log In</h5>
       <input type="email" className="form-control mb-2" placeholder="Email" />
       <input type="password" className="form-control mb-2" placeholder="Password" />
+      
+      {/* Forgot Password Link */}
+      <div className="text-end mb-2">
+        <a href="#" className="text-primary" style={{ fontSize: "14px" }}>Forgot Password?</a>
+      </div>
+
       <button className="btn btn-success w-100">Login</button>
       <button className="btn btn-secondary w-100 mt-2" onClick={() => setShowLogin(false)}>Close</button>
     </div>

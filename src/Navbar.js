@@ -1,17 +1,28 @@
 import React, { useState } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { FaCalendarAlt, FaBuilding, FaClipboardList, FaEnvelope, FaUser, FaBookOpen } from "react-icons/fa";
+import Login from "./components/Login";
+import Register from "./components/Register";
+
 import "./Navbar.css";
-import Login from "./components/Login"; // Import the Login component
 
 const Navbar = () => {
   const [showLogin, setShowLogin] = useState(false);
+  const [showRegister, setShowRegister] = useState(false);
 
   return (
     <nav className="navbar navbar-expand-lg navbar-light bg-success shadow-sm">
       <a className="navbar-brand text-white fw-bold" href="#">RMK</a>
 
-      <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+      <button
+        className="navbar-toggler"
+        type="button"
+        data-bs-toggle="collapse"
+        data-bs-target="#navbarNav"
+        aria-controls="navbarNav"
+        aria-expanded="false"
+        aria-label="Toggle navigation"
+      >
         <span className="navbar-toggler-icon"></span>
       </button>
 
@@ -25,20 +36,29 @@ const Navbar = () => {
       </div>
 
       <div className="d-flex align-items-center">
-        <button className="btn btn-light fw-bold rounded-pill px-3 py-1 me-2 shadow-sm"
+        <button 
+          className="btn btn-light fw-bold rounded-pill px-3 py-1 me-2 shadow-sm"
           style={{ background: "linear-gradient(45deg, #56ab2f, #a8e063)", color: "white", border: "none" }}
           onClick={() => setShowLogin(true)}
         >
           <FaUser /> Log In
         </button>
-        <a className="btn btn-warning fw-bold rounded-pill px-3 py-1 me-2 shadow-sm" href="#" 
-          style={{ background: "linear-gradient(45deg, #ff9966, #ff5e62)", color: "white", border: "none" }}>
+        
+        <button 
+          className="btn btn-warning fw-bold rounded-pill px-3 py-1 me-2 shadow-sm"
+          style={{ background: "linear-gradient(45deg, #ff9966, #ff5e62)", color: "white", border: "none" }}
+          onClick={() => setShowRegister(true)}
+        >
           <FaUser /> Register
+        </button>
+
+        <a className="nav-link text-white fw-bold ms-3" href="#">
+          <FaBookOpen /> User Manual
         </a>
-        <a className="nav-link text-white fw-bold ms-3" href="#"><FaBookOpen /> User Manual</a>
       </div>
 
       {showLogin && <Login setShowLogin={setShowLogin} />}
+      {showRegister && <Register setShowRegister={setShowRegister} />}
     </nav>
   );
 };
