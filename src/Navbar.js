@@ -12,7 +12,7 @@ const Navbar = () => {
 
   return (
     <nav className="navbar navbar-expand-lg navbar-light bg-success shadow-sm">
-      <a className="navbar-brand text-white fw-bold" href="#">RMK</a>
+      <a className="navbar-brand text-white fw-bold" href="#"> RMK </a>
 
       <button
         className="navbar-toggler"
@@ -28,7 +28,7 @@ const Navbar = () => {
 
       <div className="collapse navbar-collapse justify-content-center" id="navbarNav">
         <ul className="navbar-nav text-center">
-          <li className="nav-item mx-3"><a className="nav-link text-white" href="#"><FaCalendarAlt /> Events</a></li>
+        
           <li className="nav-item mx-3"><a className="nav-link text-white" href="#"><FaBuilding /> Facilities</a></li>
           <li className="nav-item mx-3"><a className="nav-link active text-warning" href="#"><FaClipboardList /> Hall Bookings</a></li>
           <li className="nav-item mx-3"><a className="nav-link text-white" href="#"><FaEnvelope /> Contact</a></li>
