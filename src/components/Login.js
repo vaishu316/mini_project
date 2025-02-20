@@ -1,19 +1,46 @@
-import React from "react";
+import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
-const Login = ({ setShowLogin }) => {
+
+const Login = () => {
+  const navigate = useNavigate(); // Hook for navigation
+  const [formData, setFormData] = useState({ email: "", password: "" });
+
+  const handleChange = (e) => {
+    setFormData({ ...formData, [e.target.name]: e.target.value });
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    // Perform authentication logic here
+    alert("Login Successful!");
+
+    // Navigate to Facilities page after login
+    navigate("/facilities");
+  };
+
   return (
-    <div className="position-fixed top-50 start-50 translate-middle p-4 bg-white shadow-lg rounded" style={{ width: "300px", zIndex: "1050" }}>
-      <h5 className="text-center mb-3">Log In</h5>
-      <input type="email" className="form-control mb-2" placeholder="Email" />
-      <input type="password" className="form-control mb-2" placeholder="Password" />
-      
-      {/* Forgot Password Link */}
-      <div className="text-end mb-2">
-        <a href="#" className="text-primary" style={{ fontSize: "14px" }}>Forgot Password?</a>
-      </div>
-
-      <button className="btn btn-success w-100">Login</button>
-      <button className="btn btn-secondary w-100 mt-2" onClick={() => setShowLogin(false)}>Close</button>
+    <div className="login-container">
+      <h2>Login</h2>
+      <form onSubmit={handleSubmit}>
+        <input
+          type="email"
+          name="email"
+          placeholder="Enter Email"
+          value={formData.email}
+          onChange={handleChange}
+          required
+        />
+        <input
+          type="password"
+          name="password"
+          placeholder="Enter Password"
+          value={formData.password}
+          onChange={handleChange}
+          required
+        />
+        <button type="submit">Login</button>
+      </form>
     </div>
   );
 };
